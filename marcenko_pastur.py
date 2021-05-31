@@ -41,18 +41,20 @@ def fitKDE(obs,bWidth=.25,kernel='gaussian',x=None):
     return pdf
 #-------------------------------------------------------------------------------
 # Compute pdf using mpPDF and fitKDE and compare
-x=np.random.normal(size=(10000,1000))
-eVal0,eVec0=getPCA(np.corrcoef(x,rowvar=0))
-# Marcenko-Pastur pdf
-pdf0=mpPDF(1.,q=x.shape[0]/float(x.shape[1]),pts=1000)
-# Empirical pdf
-pdf1=fitKDE(np.diag(eVal0),bWidth=.01)
+if False:
+    x=np.random.normal(size=(10000,1000))
+    eVal0,eVec0=getPCA(np.corrcoef(x,rowvar=0))
+    # Marcenko-Pastur pdf
+    pdf0=mpPDF(1.,q=x.shape[0]/float(x.shape[1]),pts=1000)
+    # Empirical pdf
+    pdf1=fitKDE(np.diag(eVal0),bWidth=.01)
 
 
 '''Plot the results'''
 import matplotlib.pyplot as plt
 #-------------------------------------------------------------------------------
-plt.plot(pdf0,'b',label='Marcenko-Pastur')
-plt.plot(pdf1,'r--',label='Empirical KDE')
-plt.legend()
-plt.show()
+if False:
+    plt.plot(pdf0,'b',label='Marcenko-Pastur')
+    plt.plot(pdf1,'r--',label='Empirical KDE')
+    plt.legend()
+    plt.show()
